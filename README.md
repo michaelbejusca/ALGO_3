@@ -4,9 +4,11 @@
 <h4> <span> </span> <a href="https://github.com/Rares Bejusca /Google Maps /blob/master/README.md"> 
 </div>
 
-# :notebook_with_decorative_cover: Theoretical stuff 
+# :notebook_with_decorative_cover: Structure 
+
 
 ## &#x1F34D; Goal of the assignment 
+Give travel directions in the map by using Dynamic Programming to save partial solutions that are the same and Divide and Conquer to find the fastest path at several levels of abstraction. In the end we use Dijkstra Algorithm to find the fastest path efficiency. 
 
 
 ## :star2: About the Project
