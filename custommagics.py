@@ -93,7 +93,7 @@ class CustomMagics(Magics):
         CustomMagics.making_code_block_ending(filename)
 
         # Execute the cell content in the jupyter notebook
-        get_ipython().run_cell(cell)
+        get_ipython().run_cell(cell) # type: ignore
 
     @staticmethod
     def making_code_block_ending(filename, clean_up=False):
