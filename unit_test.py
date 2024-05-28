@@ -84,7 +84,7 @@ class ExtendTestCase(unittest.TestCase):
 class TestGraph(ExtendTestCase):
     def test1_types(self):
         map_ = Map(0, (0, 0))
-        graph = Graph(map_)
+        graph = Graph(map_) 
         self.assertIsInstance(graph, Graph)
         self.assertIsInstance(graph.adjacency_list, dict)
         key = list(graph.adjacency_list.keys())[0]
@@ -139,6 +139,7 @@ class TestFloodFillSolver(ExtendTestCase):
         map_ = Map(0, (0, 0))
         solver = FloodFillSolver()
         solver.grid = map_.grid
+        solver.road_grid = map_.grid
         end = (map_.shape[0]-1, map_.shape[1]-1)
         self.assertSetEqual(set(solver.next_step((0, 0))), {(0,1), (1,0)})
         self.assertSetEqual(set(solver.next_step(end)), {(map_.shape[0]-1, map_.shape[1]-2),

@@ -100,10 +100,12 @@ class Map():
         except IndexError as error:
             raise IndexError(f"A map object can only be index similar to a numpy array, the following error was cast by numpy:\n\t\t    {error}")
 
-    def __repr__(self):
+    def __repr__(self):  
+        #* used to print the grid
         return repr(self.grid)
 
     def show(self, path=None, axis=False):
+        #* plot the grid as an image 
         """
         This shows the map, with or without a path and with or without axis (coordinate numbers).
         """
@@ -446,3 +448,8 @@ DIFF_GRID = {
     4: Map.create_city,
     5: Map.create_country
 }
+# Create a map of difficulty 2 (medium grid)
+map_instance = Map(difficulty=5)
+
+# Show the map
+map_instance.show()
