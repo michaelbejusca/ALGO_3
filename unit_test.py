@@ -5,6 +5,7 @@ import copy
 import sys
 import re
 
+from assignment2_3576817_3671526 import BFSSolverFastestPath, BFSSolverShortestPath, FloodFillSolver, FloodFillSolverGraph, Graph
 from grid_maker import Map
 NUMBER_TYPE = (int, float)
 
@@ -300,7 +301,7 @@ class TestCoordinate_to_node(ExtendTestCase):
     def test1_types(self):
         map_ = Map(0, (0, 0))
         graph = Graph(map_)
-        return_value = coordinate_to_node(map_, graph, (0,0))
+        return_value = coordinate_to_node(map_, graph, (0,0)) # type: ignore
         self.assertIsInstance(return_value, list)
         self.assertIsInstance(return_value[0], tuple)
         self.assertIsInstance(return_value[0][0], int)
@@ -309,14 +310,14 @@ class TestCoordinate_to_node(ExtendTestCase):
     def test2_is_node(self):
         map_ = Map(0, (0, 0))
         graph = Graph(map_)
-        return_value = coordinate_to_node(map_, graph, (0,0))
+        return_value = coordinate_to_node(map_, graph, (0,0)) # type: ignore
         self.assertEqual(1, len(return_value))
         self.assertTupleEqual((0,0), return_value[0])
 
     def test2_is_not_node(self):
         map_ = Map(0, (0, 0))
         graph = Graph(map_)
-        return_value = coordinate_to_node(map_, graph, (0,1))
+        return_value = coordinate_to_node(map_, graph, (0,1)) # type: ignore
         self.assertEqual(2, len(return_value))
         self.assertCountEqual([(0, 0), (0, map_.shape[1]-1)], return_value)
 
@@ -326,7 +327,7 @@ class TestBFSSolverMultipleFastestPaths(ExtendTestCase):
         graph = Graph(map_)
         start = [((0,0), 0)]
         end = [((map_.shape[0]-1, map_.shape[1]-1), 0)]
-        solver = BFSSolverMultipleFastestPaths()
+        solver = BFSSolverMultipleFastestPaths() # type: ignore
         return_value = solver(graph, start, end, 100)
         self.assertIsInstance(return_value, list)
         return_value = return_value[0]
@@ -343,7 +344,7 @@ class TestBFSSolverFastestPathMD(ExtendTestCase):
         graph = Graph(map_)
         start = (0,0)
         end = [(map_.shape[0]-1, map_.shape[1]-1)]
-        solver = BFSSolverFastestPathMD()
+        solver = BFSSolverFastestPathMD() # type: ignore
         return_value = solver(graph, start, end, 100)
         self.assertIsInstance(return_value, tuple)
         self.assertIsInstance(return_value[0], list)
@@ -355,9 +356,9 @@ class TestBFSSolverFastestPathMD(ExtendTestCase):
 class TestFind_path(ExtendTestCase):
     def test1_types(self):
         map_ = Map(5, (1, 1))
-        start = map_.get_coordinate_in_city(RNG.integers(len(map_.city_grids)-1))
-        end = map_.get_coordinate_in_city(RNG.integers(len(map_.city_grids)-1))
-        return_value = find_path(start, end, map_, 100)
+        start = map_.get_coordinate_in_city(RNG.integers(len(map_.city_grids)-1)) # type: ignore
+        end = map_.get_coordinate_in_city(RNG.integers(len(map_.city_grids)-1)) # type: ignore
+        return_value = find_path(start, end, map_, 100) # type: ignore
         self.assertIsInstance(return_value, tuple)
         self.assertIsInstance(return_value[0], list)
         self.assertIsInstance(return_value[1], float)
