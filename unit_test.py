@@ -5,7 +5,6 @@ import copy
 import sys
 import re
 
-from assignment2_3576817_3671526 import BFSSolverFastestPath, BFSSolverShortestPath, FloodFillSolver, FloodFillSolverGraph, Graph
 from grid_maker import Map
 NUMBER_TYPE = (int, float)
 
