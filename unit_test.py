@@ -5,6 +5,7 @@ import copy
 import sys
 import re
 
+from assignment2_3576817_3671526_notebook import BFSSolverShortestPath, FloodFillSolver, Graph # type: ignore
 from grid_maker import Map
 NUMBER_TYPE = (int, float)
 
@@ -176,8 +177,8 @@ class TestFloodFillSolverGraph(ExtendTestCase):
         map_ = Map(0, (0, 0))
         graph = Graph(map_)
         start = (0, 0)
-        end = (map_.shape[0]-1, map_.shape[1]-1)
-        solver = FloodFillSolverGraph()
+        end = (map_.shape[0]-1, map_.shape[1]-1) 
+        solver = FloodFillSolverGraph() # type: ignore
         return_value = solver(graph, start, end)
         self.assertIsInstance(return_value, tuple)
         self.assertIsInstance(return_value[0], list)
@@ -188,7 +189,7 @@ class TestFloodFillSolverGraph(ExtendTestCase):
 
     def test2_find_path(self):
         map_ = Map(0, (0, 0))
-        solver = FloodFillSolverGraph()
+        solver = FloodFillSolverGraph() # type: ignore
         start = (0, 0)
         end = (map_.shape[0]-1, map_.shape[1]-1)
         solver.history = {start: None}
@@ -208,7 +209,7 @@ class TestFloodFillSolverGraph(ExtendTestCase):
         graph = Graph(map_)
         start = (0, 0)
         end = (map_.shape[0]-1, map_.shape[1]-1)
-        path, length = FloodFillSolverGraph()(graph, start, end)
+        path, length = FloodFillSolverGraph()(graph, start, end) # type: ignore
         self.assertEqual(start, path[0])
         self.assertEqual(end, path[-1])
         self.assertAlmostEqual(map_.shape[0] + map_.shape[1] - 2, length)
@@ -261,7 +262,7 @@ class TestBFSSolverFastestPath(ExtendTestCase):
         graph = Graph(map_)
         start = (0, 0)
         end = (map_.shape[0]-1, map_.shape[1]-1)
-        solver = BFSSolverFastestPath()
+        solver = BFSSolverFastestPath() # type: ignore
         return_value = solver(graph, start, end, 100)
         self.assertIsInstance(return_value, tuple)
         self.assertIsInstance(return_value[0], list)
@@ -272,7 +273,7 @@ class TestBFSSolverFastestPath(ExtendTestCase):
 
     def test2_find_path(self):
         map_ = Map(0, (0, 0))
-        solver = BFSSolverFastestPath()
+        solver = BFSSolverFastestPath() # type: ignore
         start = (0, 0)
         end = (map_.shape[0]-1, map_.shape[1]-1)
         solver.history = {start: (None, 0),
@@ -290,7 +291,7 @@ class TestBFSSolverFastestPath(ExtendTestCase):
         graph = Graph(map_)
         start = (0, 0)
         end = (map_.shape[0]-1, map_.shape[1]-1)
-        path, length = BFSSolverFastestPath()(graph, start, end, 100)
+        path, length = BFSSolverFastestPath()(graph, start, end, 100) # type: ignore
         self.assertEqual(start, path[0])
         self.assertEqual(end, path[-1])
         self.assertAlmostEqual((map_.shape[0] + map_.shape[1] - 2)/30, length)
